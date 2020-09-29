@@ -33,7 +33,7 @@ static void input()
     if(keycode == KEY_ENTER){
       nowWriting = 0;
       harf = 0;
-      sleep(70000000); 
+      outb(KEYBOARD_PORT,0xF3);
       break;
     } else if(keycode == KEY_TAB || keycode == KEY_ESC || keycode == KEY_UP || keycode == KEY_RIGHT || keycode == KEY_DOWN || keycode == KEY_LEFT){
       
@@ -43,7 +43,7 @@ static void input()
       harf++;
       print_char(ch);
     }
-    sleep(50000000);
+    outb(KEYBOARD_PORT,0xF3);
   }while(ch > 0);
 }
 
